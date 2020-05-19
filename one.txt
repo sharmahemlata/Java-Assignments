@@ -1,0 +1,92 @@
+import java.io.*;
+
+
+abstract class Staff
+{
+static int num = 0;
+
+int id;
+String name;
+
+Staff(String name)
+{
+num++;
+this.id = num;
+this.name = name;
+}
+
+
+}
+
+
+class officeStaff extends Staff
+{
+
+String department;
+float salary, no_of_hours,gross_sal;
+
+officeStaff(String name, String department, float sal, float hours)
+{
+super(name);
+this.department =  department;
+this.salary = sal;
+this.no_of_hours = hours;
+}
+
+void getgross()
+{
+float da,ta;
+da = (10*salary)/100;
+ta = (12*salary)/100;
+gross_sal = salary + da+ta;
+}
+
+
+void display()
+{
+System.out.println(id+"\t"+name+"\t"+department+"\t"+no_of_hours+"\t"+salary+"\t"+gross_sal);
+}
+
+
+}
+
+
+
+
+
+
+class one{
+	
+
+
+public static void main(String ss[])throws IOException
+{
+int n;
+String name,dept;
+float sal,hours;
+BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
+System.out.println("How many records would you like to insert?");
+n = Integer.parseInt(br.readLine());
+officeStaff s[]= new officeStaff[n];
+
+for(int i=0;i<n;i++)
+{
+ System.out.println("Enter  name:");
+ name = br.readLine();
+ System.out.println("Enter department name:");
+ dept = br.readLine();
+ System.out.println("Enter basic salary:");
+ sal = Float.parseFloat(br.readLine());
+ System.out.println("Enter hours of work");
+ hours = Float.parseFloat(br.readLine());
+ s[i] = new officeStaff(name,dept,sal,hours);
+ s[i].getgross();
+}
+
+for(int i=0;i<n;i++)
+{
+s[i].display();
+}
+ 
+}
+}  

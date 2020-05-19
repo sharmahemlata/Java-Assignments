@@ -1,0 +1,41 @@
+import java.io.*;
+
+
+
+
+class four
+{
+
+	public static void main(String args[]) throws IOException
+	{
+	String fname1,fname2;
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Enter file from where you want contents to be copied");
+	fname1 = br.readLine();
+	File f1 = new File(fname1);
+	if(f1.isFile())
+	{
+		String str;
+		System.out.println("Enter file where you want the contents copied to");
+		fname2 = br.readLine();
+		RandomAccessFile rf = new RandomAccessFile(fname2,"rw");
+		FileReader rf1 = new FileReader(fname1);
+		BufferedReader fr = new BufferedReader(rf1);
+		while((str = fr.readLine())!=null)
+		{
+//		System.out.println("copied"+str);
+		rf.writeUTF(str);
+		}
+		System.out.println("Contents of file have been copied");
+		
+		
+	}
+	else
+	{
+		System.out.println("This is not a file");
+	}
+ 
+	}	
+
+
+}

@@ -1,0 +1,139 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class two implements ActionListener
+{
+
+
+	JFrame f;
+	JMenuBar mb;
+	JMenu m1,m2,m3;
+	JMenuItem i1,i2,i3,i4,i5;	
+	JTextArea ta;
+		
+	two()
+	{
+	f =  new JFrame("Menus");
+	mb = new JMenuBar();
+	m1 = new JMenu("File");
+	m2 = new JMenu("Strings");
+	m3 = new JMenu("Change case");
+	i1 = new JMenuItem("Load");
+	i2 = new JMenuItem("Save");
+	i3 = new JMenuItem("Exit");
+	i4 = new JMenuItem("Upper Case");
+	i5= new JMenuItem("Lower Case");
+
+	ta = new JTextArea(10,10);
+	
+	m1.add(i1);
+	m1.add(i2);
+	m1.add(i3);
+	
+	m3.add(i4);
+	m3.add(i5);
+	
+	m2.add(m3);
+
+	mb.add(m1);
+	mb.add(m2);
+	
+	f.setJMenuBar(mb);
+	f.setSize(400,400);
+	f.setVisible(true);
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	f.add(ta);	
+
+	i1.addActionListener(this);
+	i2.addActionListener(this);
+	i3.addActionListener(this);
+
+	}
+
+
+	public void actionPerformed(ActionEvent aie)
+	{
+	if(aie.getSource()==i1)
+	{
+	try
+	{
+		JFileChooser open = new JFileChooser();
+		int option  = open.ShowSaveDialog(f);
+		File file = new File(save.getSelectedFile().getPath());
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String s;
+		while((s=br.readLine())!=null)	
+		{
+		ta.append(s+'\n');
+		}
+		fr.close();
+	}
+	catch (Exception e)
+	{
+	
+	}	
+	}
+
+
+	if(aie.getSource()==i2)
+	{
+		JFileChooser save = new JFileChooser();
+		int option  = save.ShowSaveDialog(f);
+		File file = new File(save.getSelectedFile().getPath());
+		try
+		{
+			String s1;
+			s1 = ta.getText();
+			char aa[] = new char[s1.length()];
+			s1.getChars(0,s1.length(),aa,0);
+			FileWriter f1 = new FileWriter(file+".txt");
+				for(int i=0;i<aa.length;i++)
+				{
+				f1.write(aa[i]);
+				} 
+			f1.close();
+		}
+		catch(Exception e)
+		{
+		}
+	}	
+
+
+
+
+	if(aie.getSource()==i3)
+	{
+	System.exit(1);
+	}	
+
+
+
+	if(aie.getSource()==i4)
+	{
+	String s1;
+	s1 = ta.getText();
+	ta.setText(s1.toUpperCase());
+	}	
+
+
+	if(aie.getSource()==i5)
+	{
+	String s1;
+	s1 = ta.getText();
+	ta.setText(s1.toLowerCase());
+	}	
+
+
+
+	}
+
+
+	public static void main(String ss[])
+	{
+	new two();	
+	}
+
+
+}

@@ -1,0 +1,87 @@
+import java.io.*;
+
+class addmultiply
+{
+	public static void main (String ss[]) throws IOException
+	{
+	int a,b,i,max,min,addition=0,choice;
+        System.out.println("Enter a number:");
+	BufferedReader b1 = new BufferedReader(new InputStreamReader(System.in));
+	a = Integer.parseInt(b1.readLine());
+	System.out.println("Enter another number:");
+	BufferedReader b2 = new BufferedReader(new InputStreamReader(System.in));
+	b = Integer.parseInt(b2.readLine());
+	
+	do
+	{
+	System.out.println("1)Addition of numbers from "+a+" to "+b+".\n2)Display tabels of "+a+" and "+b+".\n3)Display max and min.\n0)Exit.");
+	choice = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
+	if(a>b){
+	max = a;
+	min = b;
+	}
+	else if(b>a)
+	{
+	max=b;
+	min=a;
+	}
+
+	else
+	{
+	min=a;max=a;
+	}
+	
+	switch(choice)
+	{
+	case 0:
+		System.exit(0);
+		break;
+	case 1:
+		 for(i=min;i<=max;i++)
+       		 {
+		 addition = addition + i;
+       		 }
+		 System.out.println(addition);
+		 break;
+	case 2:	
+	        System.out.println("Table of "+a);
+ 	        for(i=1;i<=10;i++)
+ 	        {
+       		System.out.println(a*i);
+      		}
+		if(a!=b)
+		{
+        	System.out.println("Table of "+b);
+        	for(i=1;i<=10;i++)
+		{
+        	System.out.println(b*i);
+        	}
+		}
+		break;
+	case 3:
+		if(max==min)
+		{
+		System.out.println("Both the numbers are same");
+		}
+		else
+		{
+		System.out.println("Max:"+max+"\tMin:"+min);
+		}
+		break;
+	default:
+		System.out.println("Please enter Valid data");
+	}	
+
+	}while(choice!=0);
+
+	}	
+	
+			
+}
+
+
+	
+
+
+
+

@@ -1,0 +1,79 @@
+import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+
+class five implements ActionListener
+{
+
+
+	five()
+	{
+	JFrame f = new JFrame("Something");
+	f.setVisible(true);
+	f.setSize(500,500);
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	f.setLayout(null);
+	
+
+
+	JLabel j = new JLabel("Name");
+	j.setSize(100,100);
+	j.setBounds(600,200,200,200);
+	f.add(j);
+	
+	JTextField t = new JTextField();
+	t.setBounds(600,400,200,200);
+	f.add(t);
+
+	JCheckBox one = new JCheckBox("Music");
+	one.setBounds(500,200,200,200);
+	f.add(one);
+
+	JCheckBox two = new JCheckBox("Reading");
+	two.setBounds(400,200,200,200);
+	f.add(two);
+
+	JCheckBox three = new JCheckBox("Cooking");
+	three.setBounds(300,200,200,200);
+	f.add(three);
+	
+	JButton b = new JButton("SHOW");
+	b.setSize(100,100);
+	b.setBounds(200,200,200,200);
+	b.addActionListener(this);
+	f.add(b);
+	
+	JLabel name = new JLabel("Name:");
+	name.setBounds(100,200,200,200);
+	f.add(name);
+
+	JLabel n = new JLabel();
+	n.setBounds(100,250,200,200);
+	f.add(n);
+
+	JLabel h = new JLabel("Hobbies");
+	h.setBounds(100,300,200,200);
+	f.add(h);
+
+
+	JLabel hobbies = new JLabel();		
+	hobbies.setSize(500,200);
+	hobbies.setBounds(100,350,200,200);
+	f.add(hobbies);
+	}
+
+
+	public void actionPerformed(ActionEvent ae)
+	{
+	if(ae.getSource() == b)
+	}	
+
+	
+	public static void main(String args[])
+	{
+	new five();
+	}
+}

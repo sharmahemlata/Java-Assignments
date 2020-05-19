@@ -1,0 +1,75 @@
+import java.io.*;
+
+class invalid extends Exception
+{
+invalid(String msg)
+{
+super(msg);
+}
+
+}
+
+
+
+
+
+
+
+
+class two
+{
+	
+
+	public static void main (String ss[])throws IOException
+	{
+	int flag;
+	String email;
+	BufferedReader br  = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Please enter an email id");
+	email = br.readLine();
+	char em[] = new char[email.length()];
+	em = email.toCharArray();
+	char ch = em[0];
+	flag =0;
+	try
+		{	
+		if(Character.isDigit(ch))
+		{
+		flag=1;
+		throw new invalid("Email cannot start with a number");
+		}
+		if(email.indexOf('@')<0)
+		{
+		flag=1;
+		throw new invalid("Email should have atleast one @");
+		}
+		else
+		{
+		if(email.indexOf('@')!= email.lastIndexOf('@'))
+		{
+		flag=1;
+		throw new invalid("Email cannot have more than one @");
+		}
+		}
+		
+		}
+
+	catch (invalid e)
+	{
+	System.out.println(e);
+	}
+
+	finally
+	{
+	if(flag==0)
+	{
+	System.out.println("Valid email id");
+	}
+	}
+
+	}
+
+
+
+
+}

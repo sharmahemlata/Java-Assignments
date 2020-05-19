@@ -1,0 +1,46 @@
+package maths;
+
+//this file is in a folder call maths; hence package 'maths';
+
+public class m1
+{
+
+
+
+public static int getmin(int a, int b , int c)
+{
+if(a< b && a<c)
+{
+return a;
+}
+if(c< b && c<a)
+{
+return c;
+}
+if(b< a && b<c)
+{
+return b;
+}
+return -1;
+}
+
+public static int getmax(int a, int b , int c)
+{
+if(a> b && a>c)
+{
+return a;
+}
+if(c> b && c>a)
+{
+return c;
+}
+if(b> a && b>c)
+{
+return b;
+}
+return -1;
+}
+
+
+
+}

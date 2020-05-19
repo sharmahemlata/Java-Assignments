@@ -1,0 +1,16 @@
+nt getmin(int a, int b , int c)
+{
+if(a< b && a<c)
+{
+return a;
+}
+if(c< b && c<b)
+{
+return c;
+}
+if(b< a && b<c)
+{
+return b;
+}
+}
+
